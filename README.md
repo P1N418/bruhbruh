@@ -1,2 +1,0 @@
-# bruhbruh
-random website
