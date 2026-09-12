@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - Furniture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', system-ui, sans-serif;
+            background: linear-gradient(rgba(248, 249, 250, 0.88), rgba(248, 249, 250, 0.88)), url('Gemini_Generated_Image_mb1r0vmb1r0vmb1r.png') center top / cover fixed;
+        }
+        .brand-red { color: #c9362b; }
+        .checkout-header { background: #fffefe; }
+        .checkout-logo { width: 150px; height: 46px; object-fit: contain; background: #ffffff; border-radius: 6px; padding: 3px 8px; }
+        .summary-image { width: 56px; height: 56px; object-fit: cover; }
+        .new-product-image { width: 100%; height: 230px; object-fit: cover; }
+        .payment-extra { display: none; }
+    </style>
+</head>
+<body>
+    <nav class="checkout-header navbar navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="project.html">
+                <img src="ChatGPT Image Aug 22, 2026, 08_22_58 PM.png" class="checkout-logo" alt="Furniture">
+            </a>
+            <a class="btn btn-outline-danger btn-sm" href="project.html#products">Tiếp tục mua sắm</a>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div id="emptyCheckout" class="alert alert-warning d-none">
+            Giỏ hàng đang trống. <a href="project.html#products" class="alert-link">Quay lại mua sắm</a>.
+        </div>
+        <form id="checkoutForm" class="row g-4">
+            <div class="col-lg-7">
+                <section class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h1 class="h4 mb-4">Thông tin giao hàng</h1>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label">Họ và tên</label>
+                                <input type="text" id="fullName" class="form-control" placeholder="Nguyễn Văn A" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Số điện thoại</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="0901 234 567" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="you@example.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="city" class="form-label">Tỉnh / Thành phố</label>
+                                <select id="city" class="form-select" required>
+                                    <option value="">Chọn tỉnh / thành phố</option>
+                                    <option>Hà Nội</option>
+                                    <option>Thành phố Hồ Chí Minh</option>
+                                    <option>Đà Nẵng</option>
+                                    <option>Cần Thơ</option>
+                                    <option>Hải Phòng</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="district" class="form-label">Quận / Huyện</label>
+                                <input type="text" id="district" class="form-control" placeholder="Quận hoặc huyện" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="ward" class="form-label">Phường / Xã</label>
+                                <input type="text" id="ward" class="form-control" placeholder="Phường hoặc xã" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="address" class="form-label">Địa chỉ cụ thể</label>
+                                <input type="text" id="address" class="form-control" placeholder="Số nhà, tên đường" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="note" class="form-label">Ghi chú đơn hàng <span class="text-muted">(không bắt buộc)</span></label>
+                                <textarea id="note" class="form-control" rows="2" placeholder="Ví dụ: giao giờ hành chính"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card border-0 shadow-sm mt-4">
+                    <div class="card-body p-4">
+                        <h2 class="h5 mb-3">Phương thức thanh toán</h2>
+                        <select id="paymentMethod" class="form-select" required>
+                            <option value="">Chọn phương thức</option>
+                            <option value="cod">Thanh toán khi nhận hàng</option>
+                            <option value="bank">Chuyển khoản ngân hàng</option>
+                            <option value="wallet">Ví điện tử</option>
+                        </select>
+                        <div id="paymentExtra" class="mt-3">
+                            <div id="codInfo" class="payment-extra alert alert-secondary mb-0">Bạn thanh toán khi nhận sản phẩm.</div>
+                            <div id="bankInfo" class="payment-extra alert alert-secondary mb-0">
+                                <strong>Thông tin chuyển khoản</strong><br>
+                                Ngân hàng: Furniture Bank<br>
+                                Số tài khoản: 0123 456 789<br>
+                                Nội dung: Họ tên + số điện thoại
+                            </div>
+                            <div id="walletInfo" class="payment-extra row g-3">
+                                <div class="col-md-6">
+                                    <label for="walletName" class="form-label">Ví điện tử</label>
+                                    <select id="walletName" class="form-select">
+                                        <option value="">Chọn ví</option>
+                                        <option>MoMo</option>
+                                        <option>ZaloPay</option>
+                                        <option>VNPay</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="walletPhone" class="form-label">Số điện thoại ví</label>
+                                    <input type="tel" id="walletPhone" class="form-control" placeholder="Số điện thoại">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <button type="submit" class="btn btn-danger w-100 mt-4">Đặt hàng</button>
+            </div>
+            <div class="col-lg-5">
+                <section class="card border-0 shadow-sm sticky-lg-top" style="top:1rem">
+                    <img src="images (1).jpg" class="new-product-image card-img-top" alt="Ghế bành thư giãn">
+                    <div class="card-body p-4">
+                        <span class="badge text-bg-danger mb-2">Sản phẩm mới</span>
+                        <h2 class="h4">Thử mua sản phẩm mới của chúng ta!</h2>
+                        <p class="text-muted">Ghế bành thư giãn êm ái, phù hợp cho góc đọc sách và nghỉ ngơi.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <strong class="brand-red">3.500.000 VND</strong>
+                            <a href="product-detail.html?product=armchair" class="btn btn-outline-danger">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </form>
+    </main>
+
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-body p-5">
+                    <h2 class="h4 text-success">Đặt hàng thành công!</h2>
+                    <p class="text-muted mb-4">Furniture sẽ liên hệ với bạn để xác nhận đơn hàng.</p>
+                    <a href="project.html" class="btn btn-danger">Về trang chủ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const cartStorageKey = 'cozyHomeCart';
+        const cart = JSON.parse(localStorage.getItem(cartStorageKey) || '[]');
+        const checkoutForm = document.getElementById('checkoutForm');
+        const emptyCheckout = document.getElementById('emptyCheckout');
+
+        if (!cart.length) {
+            checkoutForm.classList.add('d-none');
+            emptyCheckout.classList.remove('d-none');
+        }
+
+        document.getElementById('paymentMethod').addEventListener('change', event => {
+            const method = event.target.value;
+            document.querySelectorAll('.payment-extra').forEach(element => element.style.display = 'none');
+            const selected = document.getElementById(`${method}Info`);
+            if (selected) selected.style.display = method === 'wallet' ? 'flex' : 'block';
+            document.getElementById('walletName').required = method === 'wallet';
+            document.getElementById('walletPhone').required = method === 'wallet';
+        });
+
+        checkoutForm.addEventListener('submit', event => {
+            event.preventDefault();
+            localStorage.removeItem(cartStorageKey);
+            bootstrap.Modal.getOrCreateInstance(document.getElementById('successModal')).show();
+        });
+    </script>
+</body>
+</html>

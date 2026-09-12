@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Furniture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', system-ui, sans-serif; background: #fff5f3; min-height: 100vh; }
+        .auth-card { max-width: 620px; margin: 3rem auto; }
+        .auth-logo { width: 150px; height: 46px; object-fit: contain; }
+        .social-button { border-color: #dee2e6; background: #fff; }
+        .social-button:hover { background: #f8f9fa; }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="card border-0 shadow-sm auth-card">
+            <div class="card-body p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <a href="project.html"><img src="ChatGPT Image Aug 22, 2026, 08_22_58 PM.png" class="auth-logo" alt="Furniture"></a>
+                    <h1 class="h4 mt-4">Đăng nhập</h1>
+                    <p class="text-muted">Chào mừng bạn quay lại Furniture</p>
+                </div>
+                <form action="project.html" method="get">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-control mb-3" placeholder="you@example.com" required>
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input type="tel" id="phone" class="form-control mb-3" placeholder="0901 234 567" required>
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input type="password" id="password" class="form-control" placeholder="Mật khẩu của bạn" required>
+                    <button type="submit" class="btn btn-danger w-100 mt-4">Đăng nhập</button>
+                </form>
+                <div class="d-flex align-items-center gap-3 my-4">
+                    <hr class="flex-grow-1"><span class="text-muted small">HOẶC</span><hr class="flex-grow-1">
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-6"><a href="#" class="btn social-button w-100">G Tiếp tục với Google</a></div>
+                    <div class="col-md-6"><a href="#" class="btn social-button w-100">f Tiếp tục với Facebook</a></div>
+                </div>
+                <p class="text-center text-muted mt-4 mb-0">Chưa có tài khoản? <a href="register.html" class="text-danger">Đăng ký</a></p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
